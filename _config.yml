@@ -7,15 +7,17 @@
 # server process.
 
 # Basic Site Settings
+# Basic Site Settings
 locale                   : "en-US"
 site_theme               : "default"
-title                    : "Your Name / Site Title"
+title                    : "Md Raihan Khan - PhD Profile"
 title_separator          : "-"
-name                     : &name "Your Name"
-description              : &description "personal description"
-url                      : https://academicpages.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io"
-baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "academicpages/academicpages.github.io"
+name                     : &name "Md Raihan Khan"
+description              : &description "Personal academic website showcasing research, projects, and publications."
+url                      : "https://kraihan.github.io"  # your actual GitHub Pages URL
+baseurl                  : ""  # keep it empty for user.github.io main site
+repository               : "kraihan/kraihan.github.io"  # your actual repo path
+
 
 # Site Author - The following control what appear as part of the author content on the side bar.
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
