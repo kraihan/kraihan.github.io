@@ -35,9 +35,9 @@ author:
 
   # Academic websites
   arxiv            :                      # leave blank if you don't have one
-  googlescholar    : "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
+  googlescholar    : "https://scholar.google.com/citations?user=E3iFEuUAAAAJ&hl=en"
   impactstory      :
-  orcid            :                      # fill with your real ORCID, e.g. "https://orcid.org/0000-0000-0000-0000"
+  orcid            :    "https://orcid.org/0009-0004-2461-5461"                  # fill with your real ORCID, e.g. "https://orcid.org/0000-0000-0000-0000"
   semantic         :
   pubmed           :                      # remove the John Snow example; leave blank unless you really use PubMed
   researchgate     :
