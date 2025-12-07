@@ -2,9 +2,6 @@
 layout: archive
 title: "Home"
 author_profile: true
-header:
-  overlay_image: /images/IMG_3749.JPG
-  overlay_filter: 0.3
 ---
 
 # Welcome to My Academic Website
