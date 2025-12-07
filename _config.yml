@@ -24,7 +24,7 @@ repository               : "kraihan/kraihan.github.io"   # your actual repo path
 # Site Author
 author:
   # Biographic information (shows in sidebar)
-  avatar           : "profile.png"   # put profile.png in /images/ or /assets/ as template expects
+  avatar           : "IMG_3749.JPG"   # put profile.png in /images/ or /assets/ as template expects
   name             : *name
   pronouns         :                 # optional, e.g. "he/him"
   bio              : "Lecturer in EEE at North Western University, Bangladesh. Research in deep learning for biomedical signal processing and medical imaging."
