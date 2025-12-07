@@ -29,3 +29,4 @@ Key aspects:
   - Connect to institutional attendance backends
 
 This project showcases your **applied AI work** beyond pure theory: taking ML and CV methods into a **practical, classroom-scale system** aligned with your teaching and education interests.
+
