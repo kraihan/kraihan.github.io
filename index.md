@@ -1,5 +1,5 @@
 ---
-layout: archive
+layout: home
 title: "Home"
 author_profile: true
 header:
