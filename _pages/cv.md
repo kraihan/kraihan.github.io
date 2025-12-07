@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-[Download Full CV (PDF)](/files/CV_of_MD_Raihan_Khan.pdf){: .btn .btn--primary}
+[Download Full CV (PDF)](/files/CV of MD Raihan Khan.pdf){: .btn .btn--primary}
 
 # Education
 **Khulna University of Engineering and Technology (KUET)** — *Khulna, Bangladesh*  
