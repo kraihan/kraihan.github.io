@@ -20,7 +20,9 @@ author_profile: true
 ---
 
 {% if journal_pubs.size > 0 %}
-*Journal Publications*
+## Journal Publications
+<hr />
+
 <ul>
 {% for post in journal_pubs reversed %}
   {% include archive-single.html %}
@@ -30,6 +32,8 @@ author_profile: true
 
 {% if conf_pubs.size > 0 %}
 ## Conference Publications
+<hr />
+
 <ul>
 {% for post in conf_pubs reversed %}
   {% include archive-single.html %}
