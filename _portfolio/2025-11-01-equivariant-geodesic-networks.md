@@ -29,3 +29,5 @@ Included components:
 - `eigen_activation.py`, `rpce_loss.py`, `soft_riemannian_dropout.py` – Building blocks for robust, regularized training on manifold-valued data.
 
 This project is intended as a **research toolkit** for SPD-based covariance descriptors, diffusion tensors, and other manifold-valued representations in computer vision and medical imaging.
+
+
