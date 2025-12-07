@@ -17,11 +17,10 @@ author_profile: true
 {% assign journal_pubs = site.publications | where: "category", "journal" %}
 {% assign conf_pubs    = site.publications | where: "category", "conference" %}
 
----
+
 
 {% if journal_pubs.size > 0 %}
-## Journal Publications
-<hr />
+<h2 class="archive__subtitle">Journal Publications</h2>
 
 <ul>
 {% for post in journal_pubs reversed %}
@@ -31,7 +30,8 @@ author_profile: true
 {% endif %}
 
 {% if conf_pubs.size > 0 %}
-## Conference Publications
+<h2 class="archive__subtitle">Conference Publications</h2>
+ 
 <hr />
 
 
