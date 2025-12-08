@@ -2,7 +2,7 @@
 title: "Time–Frequency EEG Emotion Recognition on DEAP & SEED"
 collection: portfolio
 permalink: /portfolio/deap-eeg-time-frequency-study
-excerpt: "End-to-end pipeline for time–frequency feature extraction and 3D-CNN based emotion recognition on DEAP and SEED EEG datasets.<br/><img src='/images/500x300.png'>"
+excerpt: "End-to-end pipeline for time–frequency feature extraction and 3D-CNN based emotion recognition on DEAP and SEED EEG datasets.<br/><img src='/images/graphical abstract.png'>"
 date: 2025-03-25
 venue: "Research project – DEAP_EEG_EMOTION"
 github: "https://github.com/kraihan/DEAP_EEG_EMOTION"
