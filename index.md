@@ -14,7 +14,7 @@ My research focuses on:
 - Computer vision for **image enhancement, recognition, and segmentation**  
 - Generalizable and efficient machine learning for **medical AI**
 
-I am currently applying for **PhD programs for Fall 2026** in Electrical Engineering, Computer Engineering, and Computer Science.
+I am currently applying for **PhD programs for Fall 2026** in Electrical Engineering  and Computer Science.
 
 ---
 
