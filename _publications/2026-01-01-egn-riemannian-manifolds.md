@@ -1,15 +1,15 @@
 ---
-title: "Equivariant Geodesic Networks: Geometry Preserving Learning on Riemannian Manifolds"
+title: "Equivariant Geodesic Networks: End-to-End Classification on the SPD Manifold"
 collection: publications
 category: conference
 permalink: /publication/equivariant-geodesic-networks
-excerpt: "Equivariant Geodesic Networks (EGN) provide a geometry-preserving framework for learning on Riemannian manifolds, with applications to covariance-based representations."
-date: 2026-01-01
-venue: "International Conference on Learning Representations (ICLR), 2026 – Under Review"
-paperurl: "https://openreview.net/forum?id=MNOrwRlchp"
-citation: "Md Raihan Khan and Airin Akter Tania, \"Equivariant Geodesic Networks: Geometry Preserving Learning on Riemannian Manifolds,\" ICLR 2026 (under review)."
+excerpt: "An end-to-end classifier composed of equivariant mapping, Riemannian pooling, geometric bias, and geodesic attention layers that operates directly on the SPD manifold instead of projecting to Euclidean space."
+date: 2026-01-15
+venue: "Forty-First AAAI Conference on Artificial Intelligence (AAAI) — under review, 2026"
+paperurl:
+citation: "Md Raihan Khan and Airin Akter Tania, \"Equivariant Geodesic Networks: End-to-End Classification on the SPD Manifold,\" AAAI 2026 (under review)."
 ---
 
-This work introduces **Equivariant Geodesic Networks (EGN)**, a geometry-aware architecture for learning on data that naturally lies on **Riemannian manifolds**, such as covariance matrices. The model is designed to respect the underlying manifold structure through geodesic operations and to maintain equivariance under relevant transformations.
+We introduce **Equivariant Geodesic Networks (EGN)**, an end-to-end classifier that operates directly on the **symmetric positive definite (SPD) manifold** rather than projecting features to Euclidean space. EGN is composed of an **equivariant mapping** stage, **Riemannian pooling**, a **geometric bias** term, and **geodesic attention** layers, together with a numerically stable matrix-logarithm backward pass.
 
-EGN is applied to covariance-based representations in computer vision and signal processing, showing improved stability and performance compared to Euclidean baselines and naive manifold approaches. The framework offers a principled way to integrate manifold geometry into deep learning.
+By respecting the underlying manifold geometry throughout the network, EGN improves stability and accuracy over Euclidean baselines and naive manifold approaches on covariance-based representations. The architecture is released as the open-source package **egnlib**.

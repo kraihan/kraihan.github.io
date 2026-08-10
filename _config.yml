@@ -11,11 +11,11 @@ locale                   : "en-US"
 site_theme               : "default"
 
 title                    : "Md Raihan Khan"
-subtitle                 : "Deep Learning & Biomedical Signal Processing"
+subtitle                 : "Generative Modeling · Optimal Transport · Geometry-Aware Deep Learning"
 title_separator          : "-"
 name                     : &name "Md Raihan Khan"
 
-description              : &description "Personal academic website showcasing my research, publications, and projects in deep learning, biomedical signal processing, and medical imaging."
+description              : &description "Academic website of Md Raihan Khan — research in one-step generative modeling, optimal transport, geometry-aware deep learning on SPD manifolds, and neural/biomedical signal processing."
 
 url                      : "https://kraihan.github.io"   # your actual GitHub Pages URL
 baseurl                  : ""                            # keep it empty for user.github.io main site
@@ -27,7 +27,7 @@ author:
   avatar           : "IMG_3749.JPG"   # put profile.png in /images/ or /assets/ as template expects
   name             : *name
   pronouns         :                 # optional, e.g. "he/him"
-  bio              : "Lecturer in EEE at North Western University, Bangladesh. Research in deep learning for biomedical signal processing and medical imaging."
+  bio              : "Lecturer in EEE (North Western University) & M.Sc. researcher (KUET). Efficient, geometry-aware deep learning: generative modeling, optimal transport, and neural signals."
   location         : "Khulna, Bangladesh"
   employer         : "North Western University"
   uri              : "https://kraihan.github.io"   # your homepage URL
