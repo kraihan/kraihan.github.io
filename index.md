@@ -6,7 +6,7 @@ author_profile: true
 
 # Md Raihan Khan
 
-I am a **Lecturer** in the Department of Electrical and Electronic Engineering at **North Western University, Bangladesh**, and an **M.Sc. researcher** in EEE at the **Khulna University of Engineering and Technology (KUET)**, advised by Prof. Mohiuddin Ahmad.
+I am a **Lecturer** in the Department of Electrical and Electronic Engineering at **North Western University, Bangladesh**, and an **B.Sc. graduate** in EEE at the **Khulna University of Engineering and Technology (KUET)**, advised by Prof. Mohiuddin Ahmad.
 
 My research develops **efficient, geometry-aware deep learning** with a focus on:
 
