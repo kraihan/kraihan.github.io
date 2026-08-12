@@ -30,8 +30,8 @@ Advisor: Dr. Mohiuddin Ahmad, Professor of EEE
 
 # Research Experience
 
-### Researcher — EEE, KUET
-*Advisor: Dr. Mohiuddin Ahmad · November 2024 – Present*
+### Researcher
+*November 2024 – Present*
 - Derived a **closed-form flow formulation** that collapses iterative diffusion sampling into a single network evaluation, removing the multi-step solver required by conventional flow matching; implemented the complete reference training codebase with stabilizers for the degenerate-path regime.
 - Proposed **Equivariant Geodesic Networks (EGN)**, an end-to-end classifier of equivariant mapping, Riemannian pooling, geometric bias, and geodesic attention layers operating directly on the SPD manifold.
 - Derived **orthogonal-polynomial approximations for matrix-logarithm normalization** in global covariance pooling, reducing cost and enabling GPU execution of a previously CPU-bound operation.
@@ -115,7 +115,7 @@ Open-source Python package implementing the full EGN architecture (equivariant m
 # References
 
 **Dr. Mohiuddin Ahmad** — Professor, EEE, KUET
-Email: ahmad@eee.kuet.ac.bd · *(undergraduate and graduate thesis advisor)*
+Email: ahmad@eee.kuet.ac.bd · *(undergraduate thesis advisor)*
 
 **Dr. Kalyan Kumar Halder** — Professor, EEE, KUET
 Email: kalyan@eee.kuet.ac.bd · *(course instructor and IMC mentor)*
