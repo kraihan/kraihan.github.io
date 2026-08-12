@@ -27,7 +27,7 @@ author:
   avatar           : "IMG_3749.JPG"   # put profile.png in /images/ or /assets/ as template expects
   name             : *name
   pronouns         :                 # optional, e.g. "he/him"
-  bio              : "Lecturer in EEE (North Western University) & M.Sc. researcher (KUET). Efficient, geometry-aware deep learning: generative modeling, optimal transport, and neural signals."
+  bio              : "Lecturer in EEE (North Western University) & B.Sc. graduate (KUET). Efficient, geometry-aware deep learning: generative modeling, optimal transport, and neural signals."
   location         : "Khulna, Bangladesh"
   employer         : "North Western University"
   uri              : "https://kraihan.github.io"   # your homepage URL
