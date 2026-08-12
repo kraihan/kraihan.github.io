@@ -13,10 +13,7 @@ redirect_from:
 
 # Education
 
-**Khulna University of Engineering and Technology (KUET)** — *Khulna, Bangladesh*
-**M.Sc. in Electrical and Electronic Engineering** (Expected December 2026)
-Thesis: *Local–Global Feature Integration in Neural Signals Using Dual-Path Deep Learning Models*
-Advisor: Dr. Mohiuddin Ahmad, Professor of EEE
+ 
 
 **Khulna University of Engineering and Technology (KUET)** — *Khulna, Bangladesh*
 **B.Sc. in Electrical and Electronic Engineering** (Jan 2019 – Mar 2024)
@@ -33,7 +30,7 @@ Advisor: Dr. Mohiuddin Ahmad, Professor of EEE
 
 # Research Experience
 
-### Graduate Thesis Researcher — EEE, KUET
+### Researcher — EEE, KUET
 *Advisor: Dr. Mohiuddin Ahmad · November 2024 – Present*
 - Derived a **closed-form flow formulation** that collapses iterative diffusion sampling into a single network evaluation, removing the multi-step solver required by conventional flow matching; implemented the complete reference training codebase with stabilizers for the degenerate-path regime.
 - Proposed **Equivariant Geodesic Networks (EGN)**, an end-to-end classifier of equivariant mapping, Riemannian pooling, geometric bias, and geodesic attention layers operating directly on the SPD manifold.
