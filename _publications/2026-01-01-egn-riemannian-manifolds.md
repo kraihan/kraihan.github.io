@@ -13,3 +13,9 @@ citation: "Md Raihan Khan and Airin Akter Tania, \"Equivariant Geodesic Networks
 We introduce **Equivariant Geodesic Networks (EGN)**, an end-to-end classifier that operates directly on the **symmetric positive definite (SPD) manifold** rather than projecting features to Euclidean space. EGN is composed of an **equivariant mapping** stage, **Riemannian pooling**, a **geometric bias** term, and **geodesic attention** layers, together with a numerically stable matrix-logarithm backward pass.
 
 By respecting the underlying manifold geometry throughout the network, EGN improves stability and accuracy over Euclidean baselines and naive manifold approaches on covariance-based representations. The architecture is released as the open-source package **egnlib**.
+
+**egnlib** — Equivariant Geodesic Networks for the SPD manifold	2026
+•	Authored and released an open-source Python package on the Python Package Index implementing the complete EGN architecture, including equivariant mapping, Riemannian pooling, geometric bias, and geodesic attention layers, with a stable matrix-logarithm backward pass.
+•	Distributed under pip install egnlib;
+Link: [https://pypi.org/project/egnlib/](https://pypi.org/project/egnlib/)
+Source: [https://github.com/kraihan/EGN](https://github.com/kraihan/egn)
