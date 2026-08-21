@@ -13,3 +13,5 @@ citation: "Md Rifat Ur Rahman, Md Raihan Khan, Md Sakib Hossain Shovon, Pietro L
 Global Covariance Pooling (GCP) typically relies on **matrix-logarithm normalization**, whose SVD/EIG-based computation is CPU-bound and costly. This work derives **orthogonal-polynomial approximations** of the matrix logarithm on symmetric positive definite matrices that are **GPU-friendly**, reducing computational cost and moving a previously CPU-bound operation onto the GPU.
 
 We benchmark polynomial families in terms of numerical accuracy, runtime, and classification performance on large-scale vision datasets, showing that carefully designed polynomials offer a strong efficiency–fidelity trade-off for scalable log-normalization in GCP-based networks.
+
+<https://arxiv.org/abs/2608.19021>
