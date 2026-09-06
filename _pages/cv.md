@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-[Download Full CV (PDF)](/files/MD_Raihan_Khan_CV.pdf){: .btn .btn--primary}
+[Download Full CV (PDF)](/MD_Raihan_Khan_CV.pdf){: .btn .btn--primary}
 
 # Education
 
