@@ -18,7 +18,7 @@ My research develops **efficient, geometry-aware deep learning** with a focus on
 I am applying to **PhD programs for the 2027 cycle** in Machine Learning / Electrical and Computer Science, and I am actively looking for advisors working on generative modeling, optimal transport, and geometric deep learning.
 
 <p>
-  <a href="/files/MD_Raihan_Khan_CV.pdf" class="btn btn--primary">Download CV (PDF)</a>
+  <a href="/MD_Raihan_Khan_CV.pdf" class="btn btn--primary">Download CV (PDF)</a>
   <a href="/publications/" class="btn btn--primary">Publications</a>
   <a href="https://scholar.google.com/citations?user=E3iFEuUAAAAJ&hl=en" class="btn btn--primary">Google Scholar</a>
 </p>
