@@ -1,0 +1,773 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Md Raihan Khan — Lecturer in EEE at North Western University and B.Sc. graduate of KUET. Research in one-step generative modeling, optimal transport, and geometry-aware deep learning on SPD manifolds.">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="images/favicon-32x32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="images/apple-touch-icon-180x180.png">
+<title>Md Raihan Khan</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<style>
+/* Layout: sticky identity rail at left, one continuous reading column at right; stacks to a single column under 860px. */
+:root{
+  --paper:hsl(206 24% 97%);
+  --surface:hsl(0 0% 100%);
+  --ink:hsl(212 30% 13%);
+  --ink-2:hsl(212 13% 40%);
+  --line:hsl(208 18% 87%);
+  --accent:hsl(190 64% 28%);
+  --accent-soft:hsl(190 48% 93%);
+  --flag:hsl(28 68% 38%);
+
+  --sans:"IBM Plex Sans",ui-sans-serif,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:hsl(212 26% 9%);
+    --surface:hsl(212 22% 12%);
+    --ink:hsl(205 20% 92%);
+    --ink-2:hsl(205 12% 63%);
+    --line:hsl(212 16% 22%);
+    --accent:hsl(186 62% 57%);
+    --accent-soft:hsl(190 40% 17%);
+    --flag:hsl(34 72% 63%);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:hsl(212 26% 9%);
+  --surface:hsl(212 22% 12%);
+  --ink:hsl(205 20% 92%);
+  --ink-2:hsl(205 12% 63%);
+  --line:hsl(212 16% 22%);
+  --accent:hsl(186 62% 57%);
+  --accent-soft:hsl(190 40% 17%);
+  --flag:hsl(34 72% 63%);
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--serif);font-size:1.0625rem;line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid color-mix(in oklab,var(--accent) 35%,transparent)}
+a:hover{border-bottom-color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+h1,h2,h3,h4{font-family:var(--sans);font-weight:600;letter-spacing:-0.015em;margin:0;text-wrap:balance;line-height:1.22}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+
+.shell{
+  max-width:1120px;margin:0 auto;padding-inline:20px;padding-block:clamp(28px,5vw,64px);
+  display:grid;grid-template-columns:252px minmax(0,1fr);gap:clamp(32px,5vw,72px);
+  align-items:start;
+}
+@media (max-width:860px){.shell{grid-template-columns:minmax(0,1fr);gap:36px}}
+
+/* ---------- identity rail ---------- */
+.rail{position:sticky;top:calc(env(safe-area-inset-top,0px) + 28px);display:flex;flex-direction:column;gap:22px}
+@media (max-width:860px){.rail{position:static;gap:20px}}
+
+.portrait{
+  width:112px;height:112px;border-radius:3px;object-fit:cover;object-position:50% 20%;
+  border:1px solid var(--line);background:var(--surface);
+}
+.rail-name{font-size:1.3rem}
+.rail-role{font-family:var(--sans);font-size:0.8125rem;line-height:1.5;color:var(--ink-2);margin-top:6px}
+.rail-role b{color:var(--ink);font-weight:500}
+
+.links{display:flex;flex-direction:column;gap:2px;font-family:var(--sans);font-size:0.8125rem}
+.links a{
+  display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid var(--line);
+  color:var(--ink);
+}
+.links a:last-child{border-bottom:0}
+.links a:hover{color:var(--accent)}
+.links .k{font-family:var(--mono);font-size:0.6875rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-2);min-width:62px}
+.links a:hover .k{color:var(--accent)}
+
+.cv{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font-family:var(--sans);font-size:0.8125rem;font-weight:500;
+  padding:9px 14px;border:1px solid var(--accent);border-radius:3px;
+  color:var(--accent);background:transparent;
+}
+.cv:hover{background:var(--accent);color:var(--paper)}
+
+.toc{display:flex;flex-direction:column;gap:1px;font-family:var(--mono);font-size:0.6875rem;text-transform:uppercase;letter-spacing:.09em}
+.toc a{color:var(--ink-2);border:0;padding:4px 0 4px 11px;border-left:2px solid var(--line)}
+.toc a:hover{color:var(--ink);border-left-color:var(--ink-2)}
+.toc a[aria-current="true"]{color:var(--accent);border-left-color:var(--accent)}
+@media (max-width:860px){
+  .toc{flex-direction:row;overflow-x:auto;gap:0;padding-block:8px;border-block:1px solid var(--line);
+       scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .toc::-webkit-scrollbar{display:none}
+  .toc a{border-left:0;border-bottom:2px solid transparent;padding:4px 13px 4px 0;white-space:nowrap}
+  .toc a[aria-current="true"]{border-bottom-color:transparent}
+}
+
+/* ---------- main column ---------- */
+main{display:flex;flex-direction:column;gap:clamp(40px,4.5vw,60px);min-width:0}
+
+.lede{display:flex;flex-direction:column;gap:18px}
+.lede h1{font-size:clamp(1.9rem,4.4vw,2.6rem);letter-spacing:-0.025em}
+.lede .statement{font-size:clamp(1.0625rem,1.6vw,1.1875rem);max-width:60ch}
+.lede .statement em{font-style:italic;color:var(--ink)}
+
+.seeking{
+  border-left:2px solid var(--accent);padding:2px 0 2px 16px;
+  font-size:1rem;max-width:58ch;color:var(--ink-2);
+}
+.seeking b{color:var(--ink);font-weight:500;font-family:var(--sans);font-size:0.95rem}
+
+.tally{
+  display:flex;flex-wrap:wrap;gap:6px 18px;font-family:var(--mono);font-size:0.6875rem;
+  text-transform:uppercase;letter-spacing:.08em;color:var(--ink-2);
+  border-top:1px solid var(--line);padding-top:14px;
+}
+.tally b{color:var(--ink);font-weight:500}
+
+.transport{display:block;width:100%;max-width:340px;height:auto;margin-top:2px}
+@media (max-width:860px){.transport{display:none}}
+
+section{display:flex;flex-direction:column;gap:18px;scroll-margin-top:24px}
+.eyebrow{
+  font-family:var(--mono);font-size:0.6875rem;text-transform:uppercase;letter-spacing:.1em;
+  color:var(--ink-2);display:flex;align-items:center;gap:12px;
+}
+.eyebrow::after{content:"";flex:1;height:1px;background:var(--line)}
+h2{font-size:clamp(1.25rem,2.4vw,1.5rem)}
+
+/* interests */
+.interests{display:flex;flex-direction:column;gap:16px}
+.interests li{display:grid;grid-template-columns:minmax(0,1fr);gap:3px}
+.interests dt,.interests .t{font-family:var(--sans);font-weight:500;font-size:0.95rem}
+.interests .d{color:var(--ink-2);max-width:66ch}
+
+/* publications */
+.pubgroup{display:flex;flex-direction:column;gap:14px}
+.pubgroup > h3{
+  font-family:var(--mono);font-size:0.6875rem;font-weight:500;text-transform:uppercase;letter-spacing:.09em;
+  color:var(--ink-2);
+}
+.pub{
+  display:grid;grid-template-columns:56px minmax(0,1fr);gap:0 18px;
+  padding-bottom:14px;border-bottom:1px solid var(--line);
+}
+.pub:last-child{border-bottom:0;padding-bottom:0}
+.pub .yr{font-family:var(--mono);font-size:0.75rem;color:var(--ink-2);padding-top:4px;font-variant-numeric:tabular-nums}
+.pub .b{display:flex;flex-direction:column;gap:5px;min-width:0}
+.pub .t{font-family:var(--sans);font-weight:500;font-size:0.975rem;line-height:1.38}
+.pub .au{font-size:0.9375rem;color:var(--ink-2)}
+.pub .au b{color:var(--ink);font-weight:500}
+.pub .vn{font-family:var(--mono);font-size:0.6875rem;letter-spacing:.04em;color:var(--ink-2)}
+.pub .note{font-size:0.9375rem;color:var(--ink-2);max-width:64ch}
+.pub .acts{display:flex;flex-wrap:wrap;gap:12px;font-family:var(--sans);font-size:0.8125rem;margin-top:1px}
+@media (max-width:620px){
+  .pub{grid-template-columns:minmax(0,1fr);gap:5px}
+  .pub .yr{padding-top:0;order:-1}
+}
+.tag{
+  font-family:var(--mono);font-size:0.625rem;text-transform:uppercase;letter-spacing:.08em;
+  padding:2px 6px;border-radius:2px;white-space:nowrap;
+  background:var(--accent-soft);color:var(--accent);
+}
+.tag.flag{background:transparent;color:var(--flag);border:1px solid color-mix(in oklab,var(--flag) 40%,transparent)}
+
+/* experience */
+.role{display:flex;flex-direction:column;gap:8px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.role:last-child{border-bottom:0;padding-bottom:0}
+.role .h{font-family:var(--sans);font-weight:500;font-size:0.975rem}
+.role .m{font-family:var(--mono);font-size:0.6875rem;text-transform:uppercase;letter-spacing:.07em;color:var(--ink-2)}
+.role ul{display:flex;flex-direction:column;gap:7px}
+.role li{position:relative;padding-left:16px;color:var(--ink-2);max-width:66ch;font-size:0.9875rem}
+.role li::before{content:"";position:absolute;left:0;top:0.72em;width:6px;height:1px;background:var(--ink-2)}
+.role li b{color:var(--ink);font-weight:500}
+
+/* software card */
+.pkg{
+  background:var(--surface);border:1px solid var(--line);border-radius:4px;
+  padding:18px 20px;display:flex;flex-direction:column;gap:9px;
+}
+.pkg .h{font-family:var(--sans);font-weight:600;font-size:1rem}
+.pkg code{
+  font-family:var(--mono);font-size:0.8125rem;background:var(--accent-soft);color:var(--accent);
+  padding:2px 7px;border-radius:2px;
+}
+.pkg p{color:var(--ink-2);font-size:0.9375rem;max-width:64ch}
+.repos{display:flex;flex-direction:column;gap:9px}
+.repos li{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;font-size:0.9375rem;color:var(--ink-2)}
+.repos .n{font-family:var(--mono);font-size:0.8125rem;color:var(--ink)}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:18px 28px}
+.skills > div{display:flex;flex-direction:column;gap:5px;min-width:0}
+.skills dt,.skills .k{
+  font-family:var(--mono);font-size:0.6875rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-2);
+}
+.skills .v{font-size:0.9375rem}
+
+/* education / teaching / awards */
+.edu{display:flex;flex-direction:column;gap:7px}
+.edu .h{font-family:var(--sans);font-weight:500;font-size:0.975rem}
+.edu .m{font-family:var(--mono);font-size:0.6875rem;text-transform:uppercase;letter-spacing:.07em;color:var(--ink-2)}
+.edu .d{color:var(--ink-2);font-size:0.9875rem;max-width:64ch}
+.edu .d b{color:var(--ink);font-weight:500}
+
+.courses{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:10px 24px}
+.courses li{display:flex;flex-direction:column;gap:1px;min-width:0}
+.courses .c{font-family:var(--sans);font-size:0.9rem;font-weight:500}
+.courses .code{font-family:var(--mono);font-size:0.6875rem;color:var(--ink-2);letter-spacing:.04em}
+
+.plain{display:flex;flex-direction:column;gap:9px}
+.plain li{position:relative;padding-left:16px;color:var(--ink-2);font-size:0.9875rem;max-width:66ch}
+.plain li::before{content:"";position:absolute;left:0;top:0.72em;width:6px;height:1px;background:var(--ink-2)}
+.plain li b{color:var(--ink);font-weight:500}
+
+/* contact */
+.refs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:20px 28px}
+.refs > div{display:flex;flex-direction:column;gap:3px;min-width:0}
+.refs .n{font-family:var(--sans);font-weight:500;font-size:0.95rem}
+.refs .r{font-size:0.9375rem;color:var(--ink-2)}
+.refs .e{font-family:var(--mono);font-size:0.75rem;word-break:break-all}
+
+footer{
+  border-top:1px solid var(--line);padding-top:18px;margin-top:4px;
+  font-family:var(--mono);font-size:0.6875rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-2);
+  display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:space-between;
+}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+html{scroll-behavior:smooth}
+
+.transport text{font-family:var(--mono)}
+.pub code,.note code{font-family:var(--mono);font-size:0.8125rem;background:var(--accent-soft);color:var(--accent);padding:1px 5px;border-radius:2px}
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <!-- ============ identity rail ============ -->
+  <aside class="rail">
+    <img class="portrait" src="images/IMG_3749.JPG" alt="Md Raihan Khan">
+    <div>
+      <h2 class="rail-name">Md Raihan Khan</h2>
+      <p class="rail-role">
+        Lecturer, Dept. of EEE<br>
+        <b>North Western University</b><br>
+        B.Sc. EEE, <b>KUET</b> · Khulna, Bangladesh
+      </p>
+    </div>
+
+    <a class="cv" href="https://kraihan.github.io/MD_Raihan_Khan_CV.pdf">Curriculum vitae (PDF)</a>
+
+    <ul class="links">
+      <li><a href="mailto:kraihan918@gmail.com"><span class="k">Email</span><span>kraihan918@gmail.com</span></a></li>
+      <li><a href="https://scholar.google.com/citations?user=E3iFEuUAAAAJ&amp;hl=en"><span class="k">Scholar</span><span>Google Scholar</span></a></li>
+      <li><a href="https://github.com/kraihan"><span class="k">Code</span><span>github.com/kraihan</span></a></li>
+      <li><a href="https://orcid.org/0009-0004-2461-5461"><span class="k">ORCID</span><span>0009-0004-2461-5461</span></a></li>
+    </ul>
+
+    <nav class="toc" aria-label="Sections">
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#experience">Experience</a>
+      <a href="#software">Software</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#awards">Awards</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </aside>
+
+  <!-- ============ main column ============ -->
+  <main>
+
+    <div class="lede">
+      <h1>Efficient, geometry-aware deep learning</h1>
+      <p class="statement">
+        I work on generative models that need <em>one</em> network evaluation instead of hundreds, on
+        image restoration posed as optimal transport rather than as a reconstruction loss, and on
+        architectures that stay on the Riemannian manifold their features actually live on. Most of
+        my applied work is in neural and biomedical signals, where covariance — an SPD matrix — is the
+        natural representation.
+      </p>
+
+      <svg class="transport" viewBox="0 0 340 96" aria-hidden="true" fill="none">
+        <defs>
+          <marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0,1 L7,4 L0,7" fill="none" stroke="var(--accent)" stroke-width="1.1"/>
+          </marker>
+        </defs>
+        <path d="M18,70 C40,70 45,24 65,24 C85,24 90,70 112,70" stroke="var(--ink-2)" stroke-width="1.3"/>
+        <path d="M228,70 C240,70 240,34 252,34 C264,34 262,52 274,52 C286,52 284,28 296,28 C308,28 308,70 320,70" stroke="var(--ink)" stroke-width="1.3"/>
+        <line x1="18" y1="70.6" x2="112" y2="70.6" stroke="var(--line)" stroke-width="1"/>
+        <line x1="228" y1="70.6" x2="320" y2="70.6" stroke="var(--line)" stroke-width="1"/>
+        <g stroke="var(--accent)" stroke-width="1" marker-end="url(#ah)" opacity="0.85">
+          <line x1="120" y1="36" x2="220" y2="30"/>
+          <line x1="120" y1="46" x2="220" y2="43"/>
+          <line x1="120" y1="56" x2="220" y2="55"/>
+          <line x1="120" y1="66" x2="220" y2="64"/>
+        </g>
+        <g fill="var(--ink-2)" font-family="var(--mono)" font-size="8.5" letter-spacing="0.6">
+          <text x="18" y="86">noise</text>
+          <text x="156" y="86" fill="var(--accent)">one step</text>
+          <text x="297" y="86">data</text>
+        </g>
+      </svg>
+
+      <p class="seeking">
+        <b>Applying to PhD programs for the 2027 cycle</b> in machine learning and electrical &amp;
+        computer engineering. I am looking for advisors working on generative modeling, optimal
+        transport, and geometric deep learning.
+      </p>
+
+      <p class="tally">
+        <span><b>3</b> journal articles</span>
+        <span><b>6</b> conference papers</span>
+        <span><b>5</b> under review</span>
+        <span><b>1</b> IEEE best paper award</span>
+      </p>
+    </div>
+
+    <!-- ---------- research ---------- -->
+    <section id="research">
+      <p class="eyebrow">Research</p>
+      <h2>What I work on</h2>
+      <ul class="interests">
+        <li>
+          <span class="t">One- and few-step generative modeling</span>
+          <span class="d">Closed-form flow and transport formulations that collapse iterative sampling
+            into a single network evaluation, together with the stabilizers the degenerate-path
+            regime needs in practice.</span>
+        </li>
+        <li>
+          <span class="t">Restoration as optimal transport</span>
+          <span class="d">Low-light enhancement and exposure correction posed as a monotone transport
+            map between degraded and well-exposed intensity distributions, instead of a heuristic
+            reconstruction objective.</span>
+        </li>
+        <li>
+          <span class="t">Geometry-aware learning on SPD manifolds</span>
+          <span class="d">Equivariant layers, geodesic operators, Riemannian pooling, and numerically
+            stable matrix-function approximation — including GPU-friendly polynomial substitutes for
+            the matrix logarithm.</span>
+        </li>
+        <li>
+          <span class="t">Structured representations for neural signals</span>
+          <span class="d">EEG-based affective and cognitive state decoding, where spectral coherence
+            and differential entropy give the covariance structure that geometric models operate
+            on.</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ---------- publications ---------- -->
+    <section id="publications">
+      <p class="eyebrow">Publications</p>
+      <h2>Peer-reviewed and under review</h2>
+
+      <div class="pubgroup">
+        <h3>Journal articles</h3>
+
+        <article class="pub">
+          <span class="yr">2025</span>
+          <div class="b">
+            <span class="t">DAFNet: A dual-path attention fusion network for EEG emotion recognition via CNN and graph-based global modeling</span>
+            <span class="au"><b>M. R. Khan</b>, A. A. Tania, T. A. Bushra, J. Pritha, M. Ahmad</span>
+            <span class="vn">Array (Elsevier) · 2025</span>
+            <span class="note">Fuses a local CNN branch over differential-entropy features with a graph
+              attention transformer over spectral coherence symmetry. 97.73% on SEED, 97.89% on DEAP.</span>
+            <span class="acts"><a href="https://www.sciencedirect.com/science/article/pii/S2590005625001882">Paper</a></span>
+          </div>
+        </article>
+
+        <article class="pub">
+          <span class="yr">2025</span>
+          <div class="b">
+            <span class="t">A comparative study of time–frequency features based spatio-temporal analysis with varying multiscale kernels for emotion recognition from EEG</span>
+            <span class="au"><b>M. R. Khan</b>, A. A. Tania, M. Ahmad</span>
+            <span class="vn">Biomedical Signal Processing and Control (Elsevier) · 2025</span>
+            <span class="note">Establishes how time–frequency feature choice and 3D-CNN kernel scale
+              interact, validated across DEAP and SEED.</span>
+            <span class="acts"><a href="https://www.sciencedirect.com/science/article/abs/pii/S1746809425003374">Paper</a> <a href="https://github.com/kraihan/DEAP_EEG_EMOTION">Code</a></span>
+          </div>
+        </article>
+
+        <article class="pub">
+          <span class="yr">2024</span>
+          <div class="b">
+            <span class="t">Multiclass liver disease prediction with adaptive data preprocessing and ensemble modeling</span>
+            <span class="au">A. A. Ahad, B. Das, <b>M. R. Khan</b>, N. Saha, A. Zahid, M. Ahmad</span>
+            <span class="vn">Results in Engineering (Elsevier) · 2024</span>
+            <span class="note">Adaptive preprocessing with class-specific imputation and balancing, plus
+              ensembles over tuned baselines; 99.80% test accuracy on the UCI Hepatitis C data.</span>
+            <span class="acts"><a href="https://www.sciencedirect.com/science/article/pii/S259012302400313X">Paper</a></span>
+          </div>
+        </article>
+      </div>
+
+      <div class="pubgroup">
+        <h3>Conference papers</h3>
+
+        <article class="pub">
+          <span class="yr">2026</span>
+          <div class="b">
+            <span class="t">Orthogonal polynomial approximation for matrix-log normalization in global covariance pooling <span class="tag">Accepted</span></span>
+            <span class="au">M. R. U. Rahman, <b>M. R. Khan</b>, M. S. H. Shovon, P. Liò, M. A. Moni</span>
+            <span class="vn">BMVC 2026</span>
+            <span class="note">Orthogonal-polynomial approximations of the matrix logarithm on SPD
+              matrices, moving a CPU-bound SVD/EIG step onto the GPU.</span>
+            <span class="acts"><a href="https://arxiv.org/abs/2608.19021">arXiv</a></span>
+          </div>
+        </article>
+
+        <article class="pub">
+          <span class="yr">2024</span>
+          <div class="b">
+            <span class="t">Recognition of Bengali vowels from auditory evoked potentials using CNN <span class="tag">Best paper</span></span>
+            <span class="au">T. Das, <b>M. R. Khan</b>, M. M. Hasan</span>
+            <span class="vn">IEEE SPICSCON 2024</span>
+            <span class="note">Built on the first EEG auditory-evoked-potential dataset for imagined
+              Bengali language tasks, collected with a low-cost OpenBCI system.</span>
+            <span class="acts"><a href="https://ieeexplore.ieee.org/abstract/document/10940507/">Paper</a></span>
+          </div>
+        </article>
+
+        <article class="pub">
+          <span class="yr">2025</span>
+          <div class="b">
+            <span class="t">Custom dataset-driven unsupervised low-light image enhancement using 2D CNN</span>
+            <span class="au">A. A. Tania, <b>M. R. Khan</b>, M. Ahmad</span>
+            <span class="vn">IEEE QPAIN 2025</span>
+            <span class="note">Unsupervised enhancement without paired ground truth, trained on a custom
+              set of real-world low-light images.</span>
+            <span class="acts"><a href="https://ieeexplore.ieee.org/abstract/document/11171791/">Paper</a></span>
+          </div>
+        </article>
+
+        <article class="pub">
+          <span class="yr">2024</span>
+          <div class="b">
+            <span class="t">Mental stress detection from EEG signals using comparative analysis of random forest and recurrent neural network</span>
+            <span class="au"><b>M. R. Khan</b>, M. Ahmad</span>
+            <span class="vn">IEEE iCACCESS 2024</span>
+            <span class="acts"><a href="https://ieeexplore.ieee.org/abstract/document/10499496">Paper</a></span>
+          </div>
+        </article>
+
+        <article class="pub">
+          <span class="yr">2024</span>
+          <div class="b">
+            <span class="t">Machine learning techniques for brain stroke analysis and prediction</span>
+            <span class="au">R. Hasan, S. M. R. Islam, <b>M. R. Khan</b></span>
+            <span class="vn">IEEE SPICSCON 2024</span>
+            <span class="acts"><a href="https://ieeexplore.ieee.org/abstract/document/10941346/">Paper</a></span>
+          </div>
+        </article>
+
+        <article class="pub">
+          <span class="yr">2024</span>
+          <div class="b">
+            <span class="t">Smart classroom automation: a fusion of AI with voice, gesture, and face recognition attendance system</span>
+            <span class="au"><b>M. R. Khan</b>, A. A. Ahad, A. A. Tania, T. Das, B. Das</span>
+            <span class="vn">IEEE iCACCESS 2024</span>
+            <span class="acts"><a href="https://ieeexplore.ieee.org/abstract/document/10499545/">Paper</a> <a href="https://github.com/kraihan/Attendance-System">Code</a></span>
+          </div>
+        </article>
+      </div>
+
+      <div class="pubgroup">
+        <h3>Under review</h3>
+
+        <article class="pub">
+          <span class="yr">2026</span>
+          <div class="b">
+            <span class="t">AutoLumNet: Monotone optimal transport for single-shot exposure correction <span class="tag flag">Under review</span></span>
+            <span class="au">A. A. Tania, <b>M. R. Khan</b>, M. Ahmad</span>
+            <span class="vn">IEEE TPAMI</span>
+            <span class="note">Bi-branch exposure-aware network correcting both under- and over-exposure
+              in one shot, with correction reformulated as monotone optimal transport. Average MSEC 23.75.</span>
+            <span class="acts"><a href="https://arxiv.org/abs/2608.19860">arXiv</a></span>
+          </div>
+        </article>
+
+        <article class="pub">
+          <span class="yr">2026</span>
+          <div class="b">
+            <span class="t">Equivariant geodesic networks: end-to-end classification on the SPD manifold <span class="tag flag">Under review</span></span>
+            <span class="au"><b>M. R. Khan</b>, A. A. Tania</span>
+            <span class="vn">AAAI 2026</span>
+            <span class="note">Equivariant mapping, Riemannian pooling, geometric bias, and geodesic
+              attention applied directly on the manifold, with a stable matrix-logarithm backward pass.
+              Released as <code>egnlib</code>.</span>
+            <span class="acts"><a href="https://github.com/kraihan/EGN">Code</a> <a href="https://pypi.org/project/egnlib/">PyPI</a></span>
+          </div>
+        </article>
+
+        <article class="pub">
+          <span class="yr">2026</span>
+          <div class="b">
+            <span class="t">MCFN: A lightweight multi-path compound fusion network for deepfake face detection <span class="tag flag">Under review</span></span>
+            <span class="au">S. S. Lagna, <b>M. R. Khan</b></span>
+            <span class="vn">Neural Computing and Applications (Springer)</span>
+          </div>
+        </article>
+
+        <article class="pub">
+          <span class="yr">2026</span>
+          <div class="b">
+            <span class="t">Trigonometric B-spline convolutional KAN for texture classification <span class="tag flag">Under review</span></span>
+            <span class="au">M. R. U. Rahman, <b>M. R. Khan</b>, R. Islam, M. Akter</span>
+            <span class="vn">ACCV 2026</span>
+          </div>
+        </article>
+
+        <article class="pub">
+          <span class="yr">2026</span>
+          <div class="b">
+            <span class="t">Difficulty-calibrated interpolation paths for conditional flow matching <span class="tag flag">Under review</span></span>
+            <span class="au">A. A. Tania, <b>M. R. Khan</b></span>
+            <span class="vn">IEEE ICCAS 2026</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ---------- experience ---------- -->
+    <section id="experience">
+      <p class="eyebrow">Research experience</p>
+      <h2>Where the work was done</h2>
+
+      <div class="role">
+        <span class="h">Independent researcher</span>
+        <span class="m">November 2024 — present</span>
+        <ul>
+          <li>Derived a <b>closed-form flow formulation</b> that collapses iterative diffusion sampling
+            into a single network evaluation, removing the multi-step solver conventional flow matching
+            requires; implemented the full reference training codebase with stabilizers for the
+            degenerate-path regime.</li>
+          <li>Proposed <b>Equivariant Geodesic Networks</b>, an end-to-end SPD-manifold classifier built
+            from equivariant mapping, Riemannian pooling, geometric bias, and geodesic attention layers.</li>
+          <li>Derived <b>orthogonal-polynomial approximations for matrix-logarithm normalization</b> in
+            global covariance pooling, cutting cost and enabling GPU execution of a previously CPU-bound
+            operation.</li>
+          <li>Designed <b>AutoLumNet</b>, reformulating single-shot exposure correction as monotone
+            optimal transport.</li>
+          <li>Developed <b>DAFNet</b>, pairing a local attention CNN with a global graph-attention
+            transformer and covariance pooling for EEG emotion recognition.</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <span class="h">Research collaborator — Dept. of EEE, KUET</span>
+        <span class="m">May 2024 — July 2024 · Supervisor: Dr. Md. Mahbub Hasan</span>
+        <ul>
+          <li>Constructed the <b>first EEG auditory-evoked-potential dataset for imagined Bengali
+            language tasks</b> using a low-cost OpenBCI acquisition system.</li>
+          <li>Trained and evaluated convolutional models for Bengali vowel and word recognition; the
+            resulting paper received the IEEE best paper award.</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <span class="h">Undergraduate thesis researcher — Dept. of EEE, KUET</span>
+        <span class="m">January 2023 — March 2024 · Advisor: Prof. Dr. Mohiuddin Ahmad</span>
+        <ul>
+          <li>Established how time–frequency features and kernel scale interact in 3D CNNs for EEG
+            emotion recognition.</li>
+          <li>Built the complete preprocessing, class-balancing, and evaluation pipeline on constrained
+            hardware, <b>without GPU access</b>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ---------- software ---------- -->
+    <section id="software">
+      <p class="eyebrow">Software</p>
+      <h2>Open-source releases</h2>
+
+      <div class="pkg">
+        <span class="h">egnlib</span>
+        <p>The complete Equivariant Geodesic Networks architecture for the SPD manifold — equivariant
+          mapping, Riemannian pooling, geometric bias, and geodesic attention, with a numerically stable
+          matrix-logarithm backward pass.</p>
+        <p><code>pip install egnlib</code></p>
+        <p><a href="https://pypi.org/project/egnlib/">PyPI</a> · <a href="https://github.com/kraihan/EGN">Source</a></p>
+      </div>
+
+      <ul class="repos">
+        <li><span class="n"><a href="https://github.com/kraihan/DEAP_EEG_EMOTION">DEAP_EEG_EMOTION</a></span>
+          Reference implementation for the BSPC 2025 paper: preprocessing, four feature families, and
+          multiscale 3D-CNN training.</li>
+        <li><span class="n"><a href="https://github.com/kraihan/Emotion-Recognition-from-deap-dataset">Emotion-Recognition-from-deap-dataset</a></span>
+          Feature engineering and clean baselines — wavelet energy bands, Hilbert–Huang entropy,
+          Hilbert spectrum energy, differential entropy.</li>
+        <li><span class="n"><a href="https://github.com/kraihan/EEG-Emotion-Recognition">EEG-Emotion-Recognition</a></span>
+          Reduced-channel pilot for consumer-grade EEG, with 14-channel configurations and compact
+          3D-CNN kernels.</li>
+        <li><span class="n"><a href="https://github.com/kraihan/Attendance-System">Attendance-System</a></span>
+          Smart classroom prototype: face-recognition attendance with voice and gesture control hooks.</li>
+      </ul>
+    </section>
+
+    <!-- ---------- skills ---------- -->
+    <section id="skills">
+      <p class="eyebrow">Technical skills</p>
+      <h2>Methods and tools</h2>
+      <div class="skills">
+        <div>
+          <span class="k">Methods</span>
+          <span class="v">Riemannian / SPD-manifold learning · optimal transport · flow matching and
+            diffusion models · graph neural networks · EEG signal processing · low-level computer vision</span>
+        </div>
+        <div>
+          <span class="k">Programming</span>
+          <span class="v">Python · C++ · MATLAB</span>
+        </div>
+        <div>
+          <span class="k">Frameworks</span>
+          <span class="v">PyTorch · TensorFlow · Keras · scikit-learn · NumPy · pandas · SciPy · OpenCV ·
+            MNE · EEGLAB · Matplotlib · Seaborn · Flask</span>
+        </div>
+        <div>
+          <span class="k">Tools</span>
+          <span class="v">Git · LaTeX · Linux</span>
+        </div>
+        <div>
+          <span class="k">Languages</span>
+          <span class="v">Bengali (native) · English (professional working proficiency)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------- education ---------- -->
+    <section id="education">
+      <p class="eyebrow">Education</p>
+      <h2>Khulna University of Engineering &amp; Technology</h2>
+      <div class="edu">
+        <span class="h">B.Sc. in Electrical and Electronic Engineering</span>
+        <span class="m">January 2019 — March 2024 · Khulna, Bangladesh</span>
+        <span class="d">CGPA <b>3.71 / 4.00</b> — ranked <b>24 of 149</b> (top 16%). Thesis:
+          <em>Assessing mental stress using deep learning methods from EEG signals</em>, advised by
+          Prof. Dr. Mohiuddin Ahmad.</span>
+      </div>
+    </section>
+
+    <!-- ---------- teaching ---------- -->
+    <section id="teaching">
+      <p class="eyebrow">Teaching &amp; service</p>
+      <h2>Lecturer, North Western University</h2>
+      <div class="edu">
+        <span class="m">Department of EEE · August 2024 — present</span>
+        <span class="d">I supervise <b>three undergraduate thesis students</b> from problem formulation
+          through manuscript submission, teaching programming, classical machine learning, deep learning,
+          and signal processing.</span>
+      </div>
+
+      <ul class="courses">
+        <li><span class="c">Digital Image Processing</span><span class="code">EEE-4255</span></li>
+        <li><span class="c">Digital Signal Processing</span><span class="code">EEE-4115</span></li>
+        <li><span class="c">Sessional on Digital Signal Processing</span><span class="code">EEE-4116</span></li>
+        <li><span class="c">Basic Electrical Circuits</span><span class="code">EEE-1221</span></li>
+      </ul>
+
+      <ul class="plain">
+        <li><b>Batch advisor</b>, third-year cohort, Dept. of EEE, North Western University (2025 — present)</li>
+        <li><b>Course coordinator</b>, Dept. of EEE, North Western University (2024 — present)</li>
+        <li><b>Co-founder</b>, departmental research group, North Western University (2024 — present)</li>
+        <li><b>Vice president</b>, KUET Mathematics Club (2023 — 2024)</li>
+        <li><b>Ambassador</b>, International Youth Math Challenge — mathematics outreach in Bangladesh (2021)</li>
+      </ul>
+    </section>
+
+    <!-- ---------- awards ---------- -->
+    <section id="awards">
+      <p class="eyebrow">Honors</p>
+      <h2>Awards and scholarships</h2>
+      <ul class="plain">
+        <li><b>Best paper award</b>, IEEE SPICSCON (2024)</li>
+        <li><b>Honorable mention</b>, International Mathematics Competition, Bulgaria — among 589
+          participants worldwide (2021)</li>
+        <li><b>First participant from Bangladesh</b>, 27th International Mathematics Competition (2020)</li>
+        <li><b>Gold medal</b>, International Youth Math Challenge — top 1% of 15,000 competitors (2020, 2021)</li>
+        <li><b>Excellence award</b>, IYMC Ambassador Programme — fifth among 580 ambassadors (2021)</li>
+        <li><b>Silver and bronze medals</b>, International Astronomy and Astrophysics Competition (2021, 2022)</li>
+        <li><b>Best project award</b>, Electrical and Electronic Project Design Showcase, KUET (2023)</li>
+        <li><b>Dean's scholarship</b>, KUET — second and fourth academic years (2021, 2024)</li>
+        <li><b>Merit scholarship</b>, KUET — awarded seven times for departmental ranking (2020 — 2024)</li>
+      </ul>
+    </section>
+
+    <!-- ---------- contact ---------- -->
+    <section id="contact">
+      <p class="eyebrow">Contact</p>
+      <h2>Get in touch</h2>
+      <p class="statement" style="max-width:58ch">
+        The fastest way to reach me is email. I am happy to share preprints, code, or experimental
+        details for any of the work above.
+      </p>
+      <div class="refs">
+        <div>
+          <span class="n">Md Raihan Khan</span>
+          <span class="r">Lecturer, Dept. of EEE, North Western University, Khulna, Bangladesh</span>
+          <span class="e"><a href="mailto:kraihan918@gmail.com">kraihan918@gmail.com</a></span>
+        </div>
+      </div>
+
+      <p class="eyebrow" style="margin-top:8px">References</p>
+      <div class="refs">
+        <div>
+          <span class="n">Prof. Dr. Mohiuddin Ahmad</span>
+          <span class="r">Professor, Dept. of EEE, KUET — undergraduate thesis advisor</span>
+          <span class="e">ahmad@eee.kuet.ac.bd</span>
+        </div>
+        <div>
+          <span class="n">Prof. Dr. Kalyan Kumar Halder</span>
+          <span class="r">Professor, Dept. of EEE, KUET — course instructor and IMC mentor</span>
+          <span class="e">kalyan@eee.kuet.ac.bd</span>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span>Md Raihan Khan · Khulna, Bangladesh</span>
+      <span>Last updated October 2026</span>
+    </footer>
+
+  </main>
+</div>
+
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+  var sections = links.map(function(a){ return document.getElementById(a.getAttribute('href').slice(1)); })
+                      .filter(Boolean);
+  if(!sections.length || !('IntersectionObserver' in window)) return;
+
+  function mark(id){
+    links.forEach(function(a){
+      if(a.getAttribute('href') === '#' + id) a.setAttribute('aria-current','true');
+      else a.removeAttribute('aria-current');
+    });
+  }
+
+  var io = new IntersectionObserver(function(entries){
+    var visible = entries.filter(function(e){ return e.isIntersecting; })
+                         .sort(function(a,b){ return a.boundingClientRect.top - b.boundingClientRect.top; });
+    if(visible.length) mark(visible[0].target.id);
+  }, { rootMargin: '-10% 0px -70% 0px', threshold: 0 });
+
+  sections.forEach(function(s){ io.observe(s); });
+})();
+</script>
+</body>
+</html>
