@@ -1,0 +1,78 @@
+MD RAIHAN KHAN — REDESIGNED ACADEMIC WEBSITE
+
+Preview
+-------
+Extract the ZIP, then open index.html in a browser. Keep styles.css, script.js,
+the images folder, and Md_Raihan_Khan_CV.pdf beside it in the same folder.
+No installation, account, build step, or internet connection is needed to view
+the website. Paper links and external academic profiles need internet access.
+
+What changed
+------------
+* A new editorial design in warm ivory and deep green, with your existing photo.
+* Research direction and current affiliations appear immediately.
+* The updated CV is included, unchanged, and linked throughout the page.
+* PT-Flow and the Clemson collaboration lead the research narrative.
+* EGN is labeled under review at AISTATS 2027; the flow-path paper is labeled
+  accepted at IEEE ICCAS 2026, following the updated CV.
+* Four projects explain the idea and contribution in plain language.
+* Ten selected entries from the updated CV can be searched and filtered:
+  five published, two accepted, and three under review.
+* Mobile navigation, keyboard focus, reduced-motion support, and print styles.
+
+Content decisions
+-----------------
+The updated three-page CV supplied on October 6, 2026 is the main source.
+The original website supplied existing paper links, profile links, and the photo.
+The publication list is explicitly SELECTED, not an exhaustive career total.
+Older work omitted from the new CV was not treated as retracted or rejected.
+Submitted papers remain clearly marked under review, never accepted/published.
+No PT-Flow public URL was supplied, so its link requests the manuscript by email.
+The research graphics are conceptual illustrations, not experimental results.
+Benchmark numbers were omitted from highlights because the supplied summaries
+do not contain enough evaluation detail to present them meaningfully.
+
+This package has not been published and has not modified your live website.
+
+Using it on GitHub Pages
+-----------------------
+1. Save a backup of the current website or work on a separate branch.
+2. Locate the folder your GitHub Pages deployment actually publishes. It may be
+   the repository root, /docs, or the output of a GitHub Actions workflow.
+3. Place index.html, styles.css, script.js, Md_Raihan_Khan_CV.pdf, and the supplied
+   images folder in that published folder. Merge image files; do not remove
+   unrelated existing images or documents.
+4. If an older index.md or index.html also generates the home page, move that
+   old homepage to your backup so only one homepage is built at /index.html.
+   Keep the existing Jekyll setup if it is needed for your other pages.
+5. Preview the deployment and then publish through your existing Pages workflow.
+
+The new homepage is plain HTML without Jekyll front matter. Existing Jekyll
+subpages can remain in place. There is deliberately no .nojekyll file in this
+package, so adding the new homepage does not disable your other Jekyll pages.
+The exact publishing steps depend on your repository's current configuration.
+
+The CV filename is case-sensitive on GitHub Pages. New links use
+Md_Raihan_Khan_CV.pdf. Keep the older MD_Raihan_Khan_CV.pdf as well if existing
+emails or other sites already link to it, or update that old path separately.
+
+Editing later
+-------------
+index.html: biography, project descriptions, paper entries, links, dates.
+styles.css: colors, spacing, typography, desktop and mobile layouts.
+script.js: menu, publication filtering, search, and copy button.
+images/portrait.jpg: your original website portrait.
+Md_Raihan_Khan_CV.pdf: replace with a newer CV using the same filename.
+
+When adding papers, update the counts in the filter buttons and set each
+publication's data-status to published, accepted, or review. The live result
+counter is calculated automatically from the entries.
+
+Verification
+------------
+Checked local file links and section anchors, JavaScript syntax, desktop
+rendering, publication filters (5/2/3), search including no-result behavior,
+clipboard copy, mobile menu, and layouts at 390px and 320px widths.
+External profile and publisher links were carried over from your supplied
+website. Public arXiv pages were checked for the two linked preprints; every
+external destination has not been independently verified.
